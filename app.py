@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import json, requests, os
+import requests, os
 from typing import Final
 
 APP_NAME: Final = 'Memengo'
@@ -47,6 +47,3 @@ def indexPage():
         memeInfo = memeInfo,
     )
 # indexPage
-
-# REMOVE BELOW WHEN DEPLOY
-app.run('0.0.0.0', port = 1463)
