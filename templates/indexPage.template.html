@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>Welcome to {{ appName }}</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="Random memes from Reddit">
+        <meta name="keywords" content="Meme, Random Memes">
+        <meta name="author" content="SemicolonCoder">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/assets/css/bulma.min.css" />
+        <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
+        <link rel="stylesheet" href="/assets/css/app.css" />
+    </head>
+    <body class="has-navbar-fixed-top">
+        <!-- main nav -->
+        <nav class="navbar is-fixed-top is-dark" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="">{{ appName }}</a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMain"></a>
+            </div>
+
+            <div id="navbarMain" class="navbar-menu"></div>
+        </nav>
+        <!-- main nav -->
+
+        <div id="page-content">
+            <div class="columns">
+                <div class="column is-full text-center">
+                    <h2 class="title">Random meme from Reddit</h2>
+                </div>
+            </div>
+
+            {% if memeInfo %}
+            <div class="columns mt-1">
+                <div class="column is-full text-center">
+                    <img src="{{ memeInfo['dispURL'] }}" />
+                </div>
+            </div>
+
+            <div class="columns mt-1 mb-1">
+                <div class="column is-one-fifth mx-auto">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Post Details</p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <p>
+                                    <strong>Title: </strong> {{ memeInfo['postTitle'] }}
+                                </p>
+                                <p>
+                                    <strong>Sub Reddit: </strong> {{ memeInfo['postSubReddit'] }}
+                                </p>
+                                <p>
+                                    <strong>Author: </strong> {{ memeInfo['postAuthor'] }}
+                                </p>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a target="_blank" href="{{ memeInfo['postLink'] }}" class="card-footer-item">
+                                <span class="icon">
+                                    <span class="mdi mdi-open-in-new"></span>
+                                </span> Visit Post
+                            </a>
+                            <a target="_blank" href="{{ memeInfo['downloadLink'] }}" {% if memeInfo['memeFileName'] %} download="{{ memeInfo['memeFileName'] }}" {% endif %} class="card-footer-item" id="btnDownloadMemeImage">
+                                <span class="icon">
+                                    <span class="mdi mdi-download"></span>
+                                </span> Download
+                            </a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="columns mt-1">
+                <div class="column is-one-fifth mx-auto">
+                    <div class="message">
+                        <div class="message-header">
+                            <p>Error occurred</p>
+                        </div>
+                        <div class="message-body">
+                            <p>Some error has occurred! Unable to get a Meme.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>{{ appName }}</strong> by <a href="https://github.com/semicoloncoder">SemicolonCoder</a>. Developed in <a href="https://flask.palletsprojects.com/">Flask</a>. Powered by: <a href="https://github.com/D3vd/Meme_Api">Meme API</a>.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

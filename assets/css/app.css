@@ -1,0 +1,45 @@
+.text-center {
+    text-align: center;
+}
+
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.footer {
+    padding: 1rem 1.5rem;
+}
+
+#page-content {
+    margin-top: 0.5rem;
+    min-height: calc(100vh - 7.25rem);
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.img-click-to-zoom {
+    position: relative;
+}
+
+.img-click-to-zoom .img-zoom-overlay {
+    display: none;
+}
+
+.img-click-to-zoom:hover .img-zoom-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.85);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
